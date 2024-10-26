@@ -1,8 +1,5 @@
-<html>
-<body>
-    <head>
-    <link rel="stylesheet" href="men.css">
-    </head>
+
+
 <nav>
     <ul>
         <li><a href="home.php">Home</a></li>
@@ -17,5 +14,4 @@
 
 
 
-</body>
-</html>
+
