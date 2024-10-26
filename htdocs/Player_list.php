@@ -16,7 +16,7 @@
     <h1 class="title">PLAYERS</h1>
 
     <div class="button-container">
-        <button><a href="InsPlaya.php">Add player</a></button>
+        <button><a href="adplayer.php">Add player</a></button>
         <button class="redd"><a href="Delete.php">Delete player</a></button>
     </div>
 
@@ -36,7 +36,7 @@
                 <th>Email</th>
                 <th>Contact Number</th>
                 <th>Team Id</th>
-                <th></th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
