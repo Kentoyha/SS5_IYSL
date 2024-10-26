@@ -1,15 +1,13 @@
 <?php
 include("db_connect.php");
-
+include("menu.php");
+include("header.php");
 
 ?>
  <link rel="stylesheet" href="home.css">
 <body>  
         <h1>IYSL</h1>
-  
- 
-        <h2>International Youth Soccer League </h2>
-       
+        <h2 align="center">International Youth Soccer League </h2>
         <table border="1" align="center" cellspacing="0" cellpadding="10">
         <tr>
             <th>Game id</th>

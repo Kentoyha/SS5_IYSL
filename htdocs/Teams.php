@@ -1,17 +1,12 @@
 <?php
-    include("db_connect.php")
+    include("db_connect.php");
+    include("menu.php");
+    include("header.php");
 ?>
-<html>
-    <head><link rel="stylesheet" href="team.css"></head>
+    <head><link rel="stylesheet" href="teams.css"></head>
     <body>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-   
     <table border="1" align="center" cellspacing="0" cellpadding="10">
-        <h1>Teams</h1>
+        <h1>TEAMS</h1>
 <div>
     <button><a href="Insert.php">Add team</a></button>
     <button class="red"><a href="Delete_team.php">Delete team</a></button>
@@ -46,4 +41,3 @@
      ?>
      </table>
          </body>
-    </html>

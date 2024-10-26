@@ -1,5 +1,7 @@
 <?php
     include("db_connect.php");
+    include("menu.php");
+    include("header.php");
     
 ?>
 
@@ -8,12 +10,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Player List</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="playerlist.css">
 </head>
 <body>
-    <?php
-    include("menu.php");
-    ?>
     <h1 class="title">PLAYERS</h1>
 
     <div class="button-container">
