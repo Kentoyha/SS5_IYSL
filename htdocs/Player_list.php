@@ -16,7 +16,7 @@
     <h1 class="title">PLAYERS</h1>
 
     <div class="button-container">
-        <button><a href="adplayer.php">Add player</a></button>
+        <button><a href="Addplayer.php">Add player</a></button>
         <button class="redd"><a href="Delete.php">Delete player</a></button>
     </div>
 
@@ -29,9 +29,7 @@
         <thead>
             <tr>
                 <th>Player Id</th>
-                <th>Last Name</th>
-                <th>First Name</th>
-                <th>Middle Name</th>
+                <th>Full Name</th>
                 <th>Date of Birth</th>
                 <th>Email</th>
                 <th>Contact Number</th>
@@ -49,9 +47,8 @@
                     while ($result = mysqli_fetch_assoc($query)) {
                         echo "<tr>";
                         echo "<td>" . ($result["Player_id"]) . "</td>";
-                        echo "<td>" .($result["Last_name"]) . "</td>";
-                        echo "<td>" . ($result["First_name"]) . "</td>";
-                        echo "<td>" . ($result["Middle_name"]) . "</td>";
+                        echo "<td>" .($result["Last_name"]) . "," . ($result["First_name"]) . "," . ($result["Middle_name"]) ."</td>";
+                        
                         echo "<td>" . date("F d, Y", strtotime($result["Date_of_birth"])) . "</td>";
                         echo "<td>" . ($result["Email"]) . "</td>";
                         echo "<td>" . ($result["Contact_number"]) . "</td>";

@@ -8,39 +8,11 @@ include("header.php");
 <body>  
         <h1>IYSL</h1>
         <h2 align="center">International Youth Soccer League </h2>
-        <table border="1" align="center" cellspacing="0" cellpadding="10">
-        <tr>
-            <th>Game id</th>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Location</th>
-            <th>Home team id</th>
-            <th>Away team id</th>
-            <th>Home score</th>
-            <th>Away team id</th>
-        </tr>
 
-        <?php
-       $sql = "SELECT * FROM Game";
-       $query = mysqli_query($conn, $sql);
-        if (!$query){
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-        } else {
-            while($result = mysqli_fetch_assoc($query)) {
-
-                echo "<tr>";
-                echo "<td>" . $result["Game_id"] . "</td>";
-                echo "<td>" . $result["Date"] . "</td>";
-                echo "<td>" . $result["Time"] . "</td>";
-                echo "<td>" . $result["Location"] . "</td>";
-                echo "<td>" . $result["home_score"] . "</td>";
-                echo "<td>" . $result["away_score"] . "</td>";
-                echo "<td>" . $result["Home_team_id"] . "</td>";
-                echo "<td>" . $result["Away_team_id"] . "</td>";
-                echo "</tr>";
-            }
-        }
-
-        ?>
-        
+        <p>IYSL is a regional soccer association  that offers children and teenagers the opportunity to participate in soccer games and practices. <br> These leagues typically focus on skill development, teamwork, and sportsmanship, providing a structured environment for players of various skill levels.<br>
+             Each city in the region has one team that
+     represents it. <br> Each team has a maximum of 15 players and a minimum of 11 players. Each
+     team also has up to three coaches.  <br>Each team plays two games (home and visitor) against the
+            all the other teams during the season.</p>
+       
     </body>
