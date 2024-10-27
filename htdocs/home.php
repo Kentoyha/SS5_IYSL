@@ -14,5 +14,7 @@ include("header.php");
      represents it. <br> Each team has a maximum of 15 players and a minimum of 11 players. Each
      team also has up to three coaches.  <br>Each team plays two games (home and visitor) against the
             all the other teams during the season.</p>
+
+            
        
     </body>
