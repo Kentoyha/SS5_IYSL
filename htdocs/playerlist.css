@@ -17,6 +17,8 @@ table {
     cursor: pointer; /* Pointer/hand icon */
     border-radius: 12px; /* Rounded corners */
     transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+    
+    
 }
 
 .button-container button:hover {
@@ -35,4 +37,8 @@ table {
 
 .button-container button.redd:hover {
     background-color: #d32f2f; /* Darker red */
+}
+
+td , th {
+    text-align: center;
 }
