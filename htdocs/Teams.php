@@ -7,9 +7,9 @@
     <body>
     <table border="1" align="center" cellspacing="0" cellpadding="10">
         <h1>TEAMS</h1>
-<div>
+<div class="button-container" >
     <button><a href="Insert_team.php">Add team</a></button>
-    <button class="red"><a href="Delete_team.php">Delete team</a></button>
+    <button class="red"><a href="Delete team.php">Delete team</a></button>
 </div>
         <tr>
             <th> Team Id </th>

@@ -1,3 +1,12 @@
+<!DOCTYPE html>>
+<head>
+    <link rel="stylesheet" href="edit.css"></link>
+</head>
+<body>
+<br>
+<br>
+<br>
+
 <?php
     include("db_connect.php");
 ?>

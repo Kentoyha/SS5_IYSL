@@ -37,8 +37,8 @@
             </tr>
             <tr>
                 <th>
-                    <button type="submit" class="button green" name='process_edit'>Edit</button>
-                    <button type="submit" class="button red" name='process_delete'>Delete</button>
+                    <button type="submit" class="button green" name='process_edit'><a href="Edit.php">Edit</button>
+                    <button type="submit" class="button red" name='process_delete'><a href="Delete.php">Delete</button>
                 </th>
             </tr>
         </form>
