@@ -29,7 +29,7 @@ include("header.php");
             while($result = mysqli_fetch_assoc($query)) {
 
                 echo "<tr>";
-                echo "<td>" . $result["Game_id"] . "</td>";
+                echo "<td><a href='game_details.php?game_id=" . $result["Game_id"] . "'>" . $result["Game_id"] . "</a></td>";
                 echo "<td>" . $result["Date"] . "</td>";
                 echo "<td>" . $result["Time"] . "</td>";
                 echo "<td>" . $result["Location"] . "</td>";

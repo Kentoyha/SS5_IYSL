@@ -2,8 +2,8 @@ table {
     width: 100%;
     text-align: center;
     padding: auto;
-
 }
+
 .button-container button {
     background-color: #4CAF50; /* Green background */
     border: none; /* Remove borders */
@@ -17,13 +17,17 @@ table {
     cursor: pointer; /* Pointer/hand icon */
     border-radius: 12px; /* Rounded corners */
     transition: background-color 0.3s, color 0.3s; /* Smooth transition */
-    
-    
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow */
 }
 
 .button-container button:hover {
     background-color: #45a049; /* Darker green */
     color: white; /* White text */
+}
+
+.button-container button:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.6); /* Add custom focus outline */
 }
 
 .button-container button a {
@@ -39,6 +43,21 @@ table {
     background-color: #d32f2f; /* Darker red */
 }
 
-td , th {
+td, th {
     text-align: center;
+}
+
+.actbutton {
+    padding: 5px 10px;
+    margin: 0 5px;
+    text-decoration: none;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.actbutton:hover {
+    background-color: #0056b3;
 }

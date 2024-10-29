@@ -19,7 +19,7 @@
         <form method="post">
             <tr>
                 <th>
-                    <select name="student_lastname">
+                    <select name="Player_lastname">
                         <option value=""> -- SELECT A PLAYER --</option>
                         <?php
                             $sql = "SELECT * FROM Players ORDER BY Last_name ASC";

@@ -31,3 +31,16 @@ button {
 button:hover {
     background-color: #3E8E41; /* Darker green on hover */
 }
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 500px; /* Adjust the max-width as needed */
+    padding: 20px;
+    border: 2px solid #4CAF50; /* Optional: border to match the inputs */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for depth */
+}

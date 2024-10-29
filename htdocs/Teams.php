@@ -9,13 +9,15 @@
         <h1>TEAMS</h1>
 <div class="button-container" >
     <button><a href="Insert_team.php">Add team</a></button>
-    <button class="red"><a href="Delete team.php">Delete team</a></button>
+  
 </div>
         <tr>
             <th> Team Id </th>
             <th> Team Name </th>
             <th> City </th>
             <th> Manager's Full name</th>
+            <th> Action </th>
+
            
             
         </tr>
@@ -32,8 +34,10 @@
                  echo "<td>" . $result["Team_name"] . "</td>";
                  echo "<td>" . $result["City"] . "</td>";
                  echo "<td>" . $result["Manager_Lastname"] . ", " . $result["Manager_Firstname"] . ", " . $result["Manager_Middlename"] . "</td>";
+                    echo "<td><a class='actbutton' href='Edit_team.php?team_id=" . $result["Team_id"] . "'>Edit</a> <a class='actbutton' href='Delete_team.php?team_id=" . $result["Team_id"] . "'>Delete</a></td>";
+                    
 
-                
+                echo "</tr>";
              }
          }
 
