@@ -45,8 +45,22 @@ include("header.php");
                 <td> <input type="text" name="Mname" > </td>
             </tr>
             <tr>
-                <td>Team id </td>
-                <td> <input type="text" name="Team" > </td>
+                <td>Team </td>
+                <td>
+                    <select name="Team" required>
+                    <?php
+                            $sql = "SELECT * FROM Team";
+                            $query = mysqli_query($conn, $sql);
+                            if (!$query) {
+                                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                            } else {
+                                while ($result = mysqli_fetch_assoc($query)) {
+                                    echo "<option value='{$result['Team_id']}'>{$result['Team_name']}</option>";
+                                }
+                            }
+                        ?>
+                    </select>
+                </td>
             </tr>
 
             <tr>
@@ -55,6 +69,7 @@ include("header.php");
                 </td>
             </tr>
             
+        </table>
     </form>
     
   

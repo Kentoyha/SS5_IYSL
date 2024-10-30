@@ -2,7 +2,6 @@
     include("db_connect.php");
     include("menu.php");
     include("header.php");
-    
 ?>
 
 <!DOCTYPE html>
@@ -16,10 +15,10 @@
     <h1 class="title">PLAYERS</h1>
     
     <table border="1" align="center" cellspacing="0" cellpadding="5">
-        <form method="post">
+        <form method="post" action="Player_list.php">
             <tr>
                 <th>
-                    <select name="Player_lastname">
+                    <select name="Player_id" id="Player_id" required>
                         <option value=""> -- SELECT A PLAYER --</option>
                         <?php
                             $sql = "SELECT * FROM Players ORDER BY Last_name ASC";
@@ -37,52 +36,63 @@
             </tr>
             <tr>
                 <th>
-                    <button type="submit" class="button green" name='process_edit'><a href="Edit.php">Edit</button>
-                    <button type="submit" class="button red" name='process_delete'><a href="Delete.php">Delete</button>
+                    <button type="submit" name="process_edit" class="button green">Edit</button>
+                    <button type="submit" name="process_delete" class="button red">Delete</button>
                 </th>
             </tr>
         </form>
     </table>
+    
+    <?php
+       
+        if (isset($_POST['process_delete'])) {
+            
+            if (!empty($_POST['Player_id'])) {
+                $Player_id = mysqli_real_escape_string($conn, $_POST['Player_id']);
+                $sql = "DELETE FROM Players WHERE Player_id = $Player_id";
+                if (mysqli_query($conn, $sql)) {
+                    echo "<script>alert('Player has been removed'); window.location='Player_list.php';</script>";
+                } else {
+                    echo "<script>alert('Error deleting player');</script>";
+                }
+            } else {
+                echo "<script>alert('Please select a player to delete.');</script>";
+            }
+        }
 
+       
+        if (isset($_POST['process_edit']) && !empty($_POST['Player_id'])) {
+            $Player_id = mysqli_real_escape_string($conn, $_POST['Player_id']);
+            echo "<script>window.location='Edit_player.php?Player_id=$Player_id';</script>";
+        }
+    ?>
+    
     <div class="button-container">
         <button><a href="Addplayer.php">Add player</a></button>
-       
     </div>
 
-    
-
-    
-
     <table class="player-table" border="1" align="center" cellspacing="0" cellpadding="10">
-        
         <thead>
             <tr>
-            
                 <th>Full Name</th>
                 <th>Date of Birth</th>
                 <th>Email</th>
                 <th>Contact Number</th>
-                
-               
             </tr>
         </thead>
         <tbody>
             <?php 
-                $sql = "SELECT * FROM Players  ORDER BY Last_name ASC";
+                $sql = "SELECT * FROM Players ORDER BY Last_name ASC";
                 $query = mysqli_query($conn, $sql);
                 if (!$query) {
-                    echo "<tr><td colspan='8'>Error: " . $sql . "<br>" . mysqli_error($conn) . "</td></tr>";
+                    echo "<tr><td colspan='4'>Error: " . $sql . "<br>" . mysqli_error($conn) . "</td></tr>";
                 } else {
                     while ($result = mysqli_fetch_assoc($query)) {
                         echo "<tr>";
-                       
-                        echo "<td>" .($result["Last_name"]) . "," . ($result["First_name"]) . "," . ($result["Middle_name"]) ."</td>";
-                        
-                        echo "<td>" . date("F d, Y", strtotime($result["Date_of_birth"])) . "</td>";
-                        echo "<td>" . ($result["Email"]) . "</td>";
-                        echo "<td>" . ($result["Contact_number"]) . "</td>";
-                       
-                       
+                        echo "<td>{$result['Last_name']}, {$result['First_name']} {$result['Middle_name']}</td>";
+                        echo "<td>" . date("F d, Y", strtotime($result['Date_of_birth'])) . "</td>";
+                        echo "<td>{$result['Email']}</td>";
+                        echo "<td>{$result['Contact_number']}</td>";
                         echo "</tr>";
                     }
                 }
