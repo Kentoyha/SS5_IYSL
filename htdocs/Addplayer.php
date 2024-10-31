@@ -6,17 +6,12 @@ include("header.php");
 ?>
 <html>
 <head>
-    <link rel="stylesheet" href="all.css">  </link>
+    <link rel="stylesheet" href="addp.css">  </link>
 </head>
 
-<br>
-<br>
-<br>
-<br>
-<br>
 
 
-<h1> Register a Player </h1>
+<h1> REGISTER A PLAYER </h1>
     <form method="post">
         <table border=1 align="center" cellspacing="0" cellpadding="10">
 
@@ -48,6 +43,7 @@ include("header.php");
                 <td>Team </td>
                 <td>
                     <select name="Team" required>
+                
                     <?php
                             $sql = "SELECT * FROM Team";
                             $query = mysqli_query($conn, $sql);
@@ -65,7 +61,7 @@ include("header.php");
 
             <tr>
                 <td colspan="2">
-                    <button type="submit" name="Insert1"> Create</button>
+                    <button type="submit" name="Insert1"> Submit</button>
                 </td>
             </tr>
             

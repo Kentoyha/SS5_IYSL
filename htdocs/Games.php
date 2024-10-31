@@ -11,11 +11,14 @@ include("db_connect.php");
     include("header.php");
     ?>
     
-        <h1>International Youth Soccer League</h1>
+        <h1>INTERNATIONAL YOUTH SOCCER LEAGUE</h1>
         <h2 align="center">Latest Games </h2>
-        <div class="button-container">
-        <button><a href="Add_game.php">New games</a></button>
+        <div>
+        <div class="buanga">
+            <button class="buanga"><a href="Add_game.php">New Game Record</a></button>
         </div>
+        ,
+        
         <table border="1" align="center" cellspacing="0" cellpadding="10">
         <tr>
            <th>Game ID</th>
@@ -61,8 +64,8 @@ include("db_connect.php");
         echo "<td>" . $result["Date"] . "</td>";
         echo "<td>" . $result["Time"] . "</td>";
         echo "<td>" . $result["Location"] . "</td>";
-        echo "<td><a href='team_players.php?team_id=" . $result["Home_team_id"] . "'>" . $result["Home_team"] . "</a></td>";
-        echo "<td><a href='team_players.php?team_id=" . $result["Away_team_id"] . "'>" . $result["Away_team"] . "</a></td>";
+        echo "<td><a href='team_players.php?team_id=" . $result["Home_team_id"] . "' style='text-decoration: none;'>" . $result["Home_team"] . "</a></td>";
+        echo "<td><a href='team_players.php?team_id=" . $result["Away_team_id"] . "' style='text-decoration: none;'>" . $result["Away_team"] . "</a></td>";
         echo "<td>" . $result["home_score"] . "</td>";
         echo "<td>" . $result["away_score"] . "</td>";
         

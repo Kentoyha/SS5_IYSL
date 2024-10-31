@@ -14,12 +14,11 @@ include("header.php");
         
     <table border="1" align="center" cellspacing="0" cellpadding="10">
         <h1>TEAMS</h1>
-<div class="button-container" >
+<div class="buanga" >
     <button><a href="Insert_team.php">Add team</a></button>
-  
 </div>
+        
         <tr>
-            
             <th> Team Name </th>
             <th> City </th>
             <th> Manager's Full name</th>
@@ -43,8 +42,8 @@ include("header.php");
                  echo "<td>" . $result["City"] . "</td>";
                  echo "<td>" . $result["Manager_Lastname"] . ", " . $result["Manager_Firstname"] . " " . $result["Manager_Middlename"] . "</td>";
                     echo "<td>";
-                    echo "<a  class='actbutton' href='Edit_team.php?action=edit&Team_id={$result['Team_id']}'>Edit</a> ";
-                    echo "<a  class='actdelete' href='Teams.php?action=delete&Team_id={$result['Team_id']}'>Delete</a>";
+                    echo "<a class='actbutton' href='Edit_team.php?action=edit&Team_id={$result['Team_id']}'>Edit</a> ";
+                    echo "<a class='actdelete' href='Teams.php?action=delete&Team_id={$result['Team_id']}'>Delete</a>";
                     echo"</td>";
                     
                 echo "</tr>";

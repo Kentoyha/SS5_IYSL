@@ -3,7 +3,7 @@ include("db_connect.php");
 ?>
 
 <head>
-<link rel="stylesheet" href="all.css">  </link>
+<link rel="stylesheet" href="addt.css">  </link>
 </head>
 
 <body>
@@ -12,7 +12,7 @@ include("db_connect.php");
         include("header.php");
     ?>
 
-<h1>Register a Team</h1>
+<h1>REGISTER A TEAM</h1>
 
     <form method="post">
         <table border=1 align="center" cellspacing="0" cellpadding="10">
@@ -40,12 +40,64 @@ include("db_connect.php");
 
             <tr>
                 <td colspan="2">
-                    <button type="submit" name="Insert"> Create Team</button>
+                    <button type="submit" name="Insert"> Submit</button>
                 </td>
             </tr>
     </form>
-    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
 
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
 
     <?php
         if(isset($_POST['Insert'])) {

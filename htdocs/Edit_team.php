@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="editeam.css">
+    
     <title>Edit Team</title>
 </head>
 <?php
@@ -25,7 +27,7 @@ include "db_connect.php";
     }
     
 ?>
-    <h1> Edit Team </h1>
+    <h1> EDIT TEAM </h1>
     <form method="post">
         <table border=1 align="center" cellspacing="0" cellpadding="10">
             <tr>
@@ -51,10 +53,14 @@ include "db_connect.php";
             <tr>
                 <input type="hidden" name="Team_id" value="<?php echo $Team_id; ?>">
                 <td colspan="2">
-                    <button type="submit" name="edit_team"> Save Changes to Team </button>
+                    <div style="text-align: center;">
+                        <button type="submit" name="edit_team" class="button green"> Save Changes  </button>
+                        <button type="button" onclick="window.location.href='Teams.php';" class="button red">Cancel</button>
+                    </div>
                 </td>
             </tr>
     </form>
+    </table>
     <?php
         if(isset($_POST['edit_team'])) {
             $Team_name = $_POST['Team_name'];

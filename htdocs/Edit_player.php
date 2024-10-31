@@ -52,16 +52,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Edit Player</title>
+    <title>EDIT PLAYER</title>
     <?php
         include("menu.php");
         include("header.php");
     ?>    
-    <link rel="stylesheet" href="playerlist.css">
+    <link rel="stylesheet" href="ediplayer.css">
 </head>
 <body>
    
-    <h1>Edit Player</h1>
+    <h1>EDIT PLAYER</h1>
 
     <form method="post" action="">
         <table align="center" cellpadding="10">
@@ -90,12 +90,34 @@
                 <td><input type="text" name="contact_number" id="contact_number" value="<?php echo htmlspecialchars($player['Contact_number']); ?>" required></td>
             </tr>
             <tr>
+                <td>Team </td>
+                <td>
+                    <select name="Team" required>
+                
+                    <?php
+                            $sql = "SELECT * FROM Team";
+                            $query = mysqli_query($conn, $sql);
+                            if (!$query) {
+                                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                            } else {
+                                while ($result = mysqli_fetch_assoc($query)) {
+                                    echo "<option value='{$result['Team_id']}'>{$result['Team_name']}</option>";
+                                }
+                            }
+                        ?>
+                    </select>
+                </td>
+            </tr>
+            <tr>
                 <td colspan="2" align="center">
-                    <button type="submit" name="update_player" class="button green">Update Player</button>
-                    <button type="button" onclick="window.location.href='Player_list.php';" class="button red">Cancel</button>
+                    <div style="text-align: center;">
+                        <button type="submit" name="update_player" class="button green">Save Changes</button>
+                        <button type="button" onclick="window.location.href='Player_list.php';" class="button red">Cancel</button>
+                    </div>
                 </td>
             </tr>
         </table>
     </form>
+
 </body>
 </html>

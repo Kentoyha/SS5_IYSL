@@ -17,7 +17,7 @@
     <table border="1" align="center" cellspacing="0" cellpadding="5">
         <form method="post" action="Player_list.php">
             <tr>
-                <th>
+                <th style="text-align: center; ">
                     <select name="Player_id" id="Player_id" required>
                         <option value=""> -- SELECT A PLAYER --</option>
                         <?php
@@ -32,17 +32,12 @@
                             }
                         ?>
                     </select>
-                </th>
-            </tr>
-            <tr>
-                <th>
                     <button type="submit" name="process_edit" class="button green">Edit</button>
                     <button type="submit" name="process_delete" class="button red">Delete</button>
                 </th>
             </tr>
         </form>
-    </table>
-    
+           
     <?php
        
         if (isset($_POST['process_delete'])) {
@@ -66,11 +61,11 @@
             echo "<script>window.location='Edit_player.php?Player_id=$Player_id';</script>";
         }
     ?>
-    
-    <div class="button-container">
+    <div class="crazy">
+    <div class="buanga">
         <button><a href="Addplayer.php">Add player</a></button>
     </div>
-
+    </div>
     <table class="player-table" border="1" align="center" cellspacing="0" cellpadding="10">
         <thead>
             <tr>

@@ -1,71 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #464040;
+    margin: 0;
+}
+
 table {
     width: 100%;
     text-align: center;
-    padding: auto;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    padding: 15px;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #3e3b3b;
+    font-weight: bold;
 }
 
 .button-container button {
-    background-color: #4CAF50; /* Green background */
-    border: none; /* Remove borders */
-    color: white; /* White text */
-    padding: 15px 32px; /* Some padding */
-    text-align: center; /* Center the text */
-    text-decoration: none; /* Remove underline */
-    display: inline-block; /* Get the elements to line up */
-    font-size: 16px; /* Increase font size */
-    margin: 4px 2px; /* Add some margin */
-    cursor: pointer; /* Pointer/hand icon */
-    border-radius: 12px; /* Rounded corners */
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow */
-}
-
-.button-container button:hover {
-    background-color: #45a049; /* Darker green */
-    color: white; /* White text */
-}
-
-.button-container button:focus {
-    outline: none; /* Remove default focus outline */
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.6); /* Add custom focus outline */
-}
-
-.button-container button a {
-    color: white; /* White text */
-    text-decoration: none; /* Remove underline */
-}
-
-.button-container button.redd {
-    background-color: #f44336; /* Red background */
-}
-
-.button-container button.redd:hover {
-    background-color: #d32f2f; /* Darker red */
-}
-
-td, th {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
     text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background-color 0.3s, color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.actbutton, .actdelete{
+.actbutton, .actdelete {
     padding: 5px 10px;
-    margin: 0 5px;
     text-decoration: none;
     color: white;
-    background-color: #007BFF;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
+    border-radius: 5px;
 }
 
-.actbutton:hover {
-    background-color: #0056b3;
+.actbutton {
+    background-color: #4CAF50;
 }
 
 .actdelete {
-    background-color: #f44336; /* Red background */
+    background-color: #f44336;
 }
 
-.actdelete :hover {
-    background-color: #d32f2f; /* Darker red */
+.actbutton:hover, .actdelete:hover {
+    opacity: 0.8;
+}
+
+.buanga button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.buanga button a {
+    color: white;
+    text-decoration: none;
+}
+
+.buanga button:hover {
+    background-color: #45a049;
+}
+
+.container {
+    position: absolute;
+    padding-top: 50px;
 }
