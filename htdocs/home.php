@@ -8,6 +8,7 @@ include("header.php");
 <body>  
         <h1>IYSL</h1>
         <h2 align="center">International Youth Soccer League </h2>
+        <hr>
 
         <p>IYSL is a regional soccer association  that offers teenagers the opportunity to participate in soccer games and practices. <br> The leagues typically focus on skill development, teamwork, and sportsmanship, providing a structured environment for players of various skill levels.<br>
              Each city in the region has one team that

@@ -22,6 +22,7 @@ form {
 table {
     width: 100%;
     border-collapse: collapse;
+    padding: 0px;
 }
 
 td {

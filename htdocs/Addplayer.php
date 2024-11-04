@@ -12,6 +12,7 @@ include("header.php");
 
 
 <h1> REGISTER A PLAYER </h1>
+<hr>
     <form method="post">
         <table border=1 align="center" cellspacing="0" cellpadding="10">
 

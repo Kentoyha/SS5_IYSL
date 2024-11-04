@@ -1,8 +1,8 @@
 <?php
 include "db_connect.php";
 ?>
-<!DOCTYPE html>
-<html lang="en">
+
+
 <head>
    
     <link rel="stylesheet" href="team_player.css">
@@ -53,4 +53,4 @@ include "db_connect.php";
         </tbody>
     </table>
 </body>
-</html>
+

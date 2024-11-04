@@ -48,11 +48,12 @@
     }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+
+
 <head>
     <meta charset="UTF-8">
     <title>EDIT PLAYER</title>
+    <hr>
     <?php
         include("menu.php");
         include("header.php");
@@ -120,4 +121,4 @@
     </form>
 
 </body>
-</html>
+

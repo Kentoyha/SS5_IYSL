@@ -4,8 +4,7 @@
     include("header.php");
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Player List</title>
@@ -13,6 +12,7 @@
 </head>
 <body>
     <h1 class="title">PLAYERS</h1>
+    <hr>
     
     <table border="1" align="center" cellspacing="0" cellpadding="5">
         <form method="post" action="Player_list.php">
@@ -20,6 +20,7 @@
                 <th style="text-align: center; ">
                     <select name="Player_id" id="Player_id" required>
                         <option value=""> -- SELECT A PLAYER --</option>
+                        
                         <?php
                             $sql = "SELECT * FROM Players ORDER BY Last_name ASC";
                             $query = mysqli_query($conn, $sql);
@@ -95,4 +96,4 @@
         </tbody>
     </table>
 </body>
-</html>
+

@@ -12,6 +12,7 @@ include("db_connect.php");
     ?>
     
         <h1>INTERNATIONAL YOUTH SOCCER LEAGUE</h1>
+        <hr>
         <h2 align="center">Latest Games </h2>
         <div>
         <div class="buanga">

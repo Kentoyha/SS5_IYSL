@@ -13,6 +13,7 @@ include("db_connect.php");
     ?>
 
 <h1>REGISTER A TEAM</h1>
+<hr>
 
     <form method="post">
         <table border=1 align="center" cellspacing="0" cellpadding="10">
