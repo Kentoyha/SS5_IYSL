@@ -39,84 +39,84 @@ include 'header.php';
                 <td>Home Team</td>
                 <td>
                     <select name="Home_team" required>
-                    
-                                        <?php
-                                            $sql = "SELECT * FROM Team";
-                                            $query = mysqli_query($conn, $sql);
-                                            while ($result = mysqli_fetch_assoc($query)) {
-                                                echo "<option value='{$result['Team_id']}'>{$result['Team_name']}</option>";
-                                            }
-                                        ?>
-                        
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Away Team</td>
-                                    <td>
-                                        <select name="Away_team" required>
-                                        <?php
-                                            $sql = "SELECT * FROM Team";
-                                            $query = mysqli_query($conn, $sql);
-                                            while ($result = mysqli_fetch_assoc($query)) {
-                                                echo "<option value='{$result['Team_id']}'>{$result['Team_name']}</option>";
-                                            }
-                                        ?>
-                                        </select>
-                                    </td>
-
-                                <tr>
-                                    <td colspan="2">
-                                        <button type="submit" name="New_game"> Submit</button>
-                                    </td>
-                                </tr>
-                            </table>
-                        </form>
                         <?php
-                        if (isset($_POST['New_game'])) {
-                            $Date = $_POST['Date'];
-                            $Time = $_POST['Time'];
-                            $Location = $_POST['Location'];
-                            $Home_score = $_POST['Hscore'];
-                            $Away_score = $_POST['Ascore'];
-                            $Home_team = $_POST['Home_team'];
-                            $Away_team = $_POST['Away_team'];
-
-                            
-                            if ($Home_team == $Away_team) {
-                                echo "<script> alert('A team cannot play against itself.'); </script>";
-                                exit;
-                            }
-
-                           
-                            $homeTeamCount = "SELECT COUNT(*) as home_game_count FROM Game WHERE Home_team_id = '$Home_team' OR Away_team_id = '$Home_team'";
-                            $awayTeamCount = "SELECT COUNT(*) as away_game_count FROM Game WHERE Home_team_id = '$Away_team' OR Away_team_id = '$Away_team'";
-                            
-                            $homeTeamResult = mysqli_query($conn, $homeTeamCount);
-                            $awayTeamResult = mysqli_query($conn, $awayTeamCount);
-
-                            $homeGameCount = mysqli_fetch_assoc($homeTeamResult)['home_game_count'];
-                            $awayGameCount = mysqli_fetch_assoc($awayTeamResult)['away_game_count'];
-
-                           
-                            if ($homeGameCount >= 2) {
-                                echo "<script> alert('The selected home team has already reached the maximum of 2 games for the season.'); </script>";
-                            } elseif ($awayGameCount >= 2) {
-                                echo "<script> alert('The selected away team has already reached the maximum of 2 games for the season.'); </script>";
-                            } else {
-                               
-                                $sql = "INSERT INTO Game (Date, Time, Location, Home_team_id, Away_team_id, home_score, away_score)
-                                        VALUES ('$Date', '$Time', '$Location', '$Home_team', '$Away_team', '$Home_score', '$Away_score')";
-                                $query = mysqli_query($conn, $sql);
-
-                                if ($query) {
-                                    echo "<script> alert('New game has been recorded'); window.location='Games.php'; </script>";
-                                } else {
-                                    echo "<script> alert('Error: " . mysqli_error($conn) . "'); </script>";
-                                }
-                            }
+                        $sql = "SELECT * FROM Team";
+                        $query = mysqli_query($conn, $sql);
+                        while ($result = mysqli_fetch_assoc($query)) {
+                            echo "<option value='{$result['Team_id']}'>{$result['Team_name']}</option>";
                         }
                         ?>
-                    </body>
-                    </html>
-                    
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Away Team</td>
+                <td>
+                    <select name="Away_team" required>
+                        <?php
+                        $sql = "SELECT * FROM Team";
+                        $query = mysqli_query($conn, $sql);
+                        while ($result = mysqli_fetch_assoc($query)) {
+                            echo "<option value='{$result['Team_id']}'>{$result['Team_name']}</option>";
+                        }
+                        ?>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit" name="New_game"> Submit</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <?php
+    if (isset($_POST['New_game'])) {
+        $Date = $_POST['Date'];
+        $Time = $_POST['Time'];
+        $Location = $_POST['Location'];
+        $Home_score = $_POST['Hscore'];
+        $Away_score = $_POST['Ascore'];
+        $Home_team = $_POST['Home_team'];
+        $Away_team = $_POST['Away_team'];
+
+        if ($Home_team == $Away_team) {
+            echo "<script> alert('A team cannot play against itself.'); </script>";
+            exit;
+        }
+
+        // Check if the teams have already played the home/away combination twice
+        $homeToAwayQuery = "
+            SELECT COUNT(*) as count FROM Game 
+            WHERE (Home_team_id = '$Home_team' AND Away_team_id = '$Away_team')
+        ";
+        $awayToHomeQuery = "
+            SELECT COUNT(*) as count FROM Game 
+            WHERE (Home_team_id = '$Away_team' AND Away_team_id = '$Home_team')
+        ";
+
+        $homeToAwayResult = mysqli_query($conn, $homeToAwayQuery);
+        $awayToHomeResult = mysqli_query($conn, $awayToHomeQuery);
+
+        $homeToAwayCount = mysqli_fetch_assoc($homeToAwayResult)['count'];
+        $awayToHomeCount = mysqli_fetch_assoc($awayToHomeResult)['count'];
+
+        // Check if the maximum of one home and one away game has been reached
+        if ($homeToAwayCount >= 1 && $awayToHomeCount >= 1) {
+            echo "<script> alert('These teams have already played their home and away games against each other.'); </script>";
+        } else {
+            // Insert the new game record
+            $sql = "INSERT INTO Game (Date, Time, Location, Home_team_id, Away_team_id, home_score, away_score)
+                    VALUES ('$Date', '$Time', '$Location', '$Home_team', '$Away_team', '$Home_score', '$Away_score')";
+            $query = mysqli_query($conn, $sql);
+
+            if ($query) {
+                echo "<script> alert('New game has been recorded'); window.location='Games.php'; </script>";
+            } else {
+                echo "<script> alert('Error: " . mysqli_error($conn) . "'); </script>";
+            }
+        }
+    }
+    ?>
+</body>
+</html>

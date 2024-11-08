@@ -92,3 +92,8 @@ select {
     position: absolute;
     padding-top: 25px;
 }
+
+.button.green {
+    background-color: #42b5eb;
+    color: white;
+}

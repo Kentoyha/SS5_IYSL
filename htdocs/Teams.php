@@ -7,6 +7,8 @@
 include("menu.php");
 include("header.php");
 ?>
+<!DOCTYPE html>
+<html>
     <head><link rel="stylesheet" href="teams.css"></head>
     
 
@@ -16,7 +18,7 @@ include("header.php");
         <h1>TEAMS</h1>
         <hr>
 <div class="buanga" >
-    <button><a href="Insert_team.php">Add team</a></button>
+    <a href="Insert_team.php"><button>Add team</button></a>
 </div>
         
         <tr>
@@ -39,7 +41,7 @@ include("header.php");
              while($result = mysqli_fetch_assoc($query)) {
                  echo "<tr>";
                 
-                 echo "<td>" . $result["Team_name"] . "</td>";
+                 echo "<td><a href='team_players.php?team_id=" . $result["Team_id"] . "' style='text-decoration: none;'>" . $result["Team_name"] . "</a></td>";
                  echo "<td>" . $result["City"] . "</td>";
                  echo "<td>" . $result["Manager_Lastname"] . ", " . $result["Manager_Firstname"] . " " . $result["Manager_Middlename"] . "</td>";
                     echo "<td>";
@@ -62,18 +64,13 @@ include("header.php");
         if ($action == 'delete') {
             $sql = "DELETE FROM Team WHERE Team_id = $Team_id";
             if (mysqli_query($conn, $sql)) {
-                echo "<script> alert('Teamm has been removed'); window.location='Teams.php'; </script>";
+                echo "<script> alert('Team has been removed'); window.location='Teams.php'; </script>";
             }
         }
     }
     ?>
 
-<?php
-        if(isset($_POST['process_edit'])) {
-            $lrn = trim($_POST['student_lrn']);
-            echo "<script> window.location='edit_students.php?action=edit&lrn=$lrn'; </script>";
-        }
-    ?>
+
      </table>
          </body>
 </html>

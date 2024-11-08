@@ -48,20 +48,18 @@
     }
 ?>
 
-
-
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
     <title>EDIT PLAYER</title>
-    <hr>
-    <?php
-        include("menu.php");
-        include("header.php");
-    ?>    
     <link rel="stylesheet" href="ediplayer.css">
+    <?php include("header.php"); ?>
 </head>
 <body>
-   
+<?php
+        include("menu.php");
+?>    
     <h1>EDIT PLAYER</h1>
 
     <form method="post" action="">
@@ -121,4 +119,4 @@
     </form>
 
 </body>
-
+</html>

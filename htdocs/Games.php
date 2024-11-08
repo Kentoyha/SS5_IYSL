@@ -1,10 +1,13 @@
 <?php
 include("db_connect.php");
-
-
 ?>
+<DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Games</title>
+    <link rel="stylesheet" href="games.css">
  <link rel="stylesheet" href="games.css">
-
 <body>  
     <?php
     include("menu.php");
@@ -16,7 +19,7 @@ include("db_connect.php");
         <h2 align="center">Latest Games </h2>
         <div>
         <div class="buanga">
-            <button class="buanga"><a href="Add_game.php">New Game Record</a></button>
+        <a href="Add_game.php"><button class="buanga">New Game Record</button></a>
         </div>
         ,
         
@@ -82,6 +85,7 @@ include("db_connect.php");
     }
         ?>
 
-      
-        
+    </HEAD>
+    </table> 
     </body>
+</html>

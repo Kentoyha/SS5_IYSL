@@ -4,7 +4,8 @@
     include("header.php");
 ?>
 
-
+<DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Player List</title>
@@ -64,7 +65,7 @@
     ?>
     <div class="crazy">
     <div class="buanga">
-        <button><a href="Addplayer.php">Add player</a></button>
+    <a href="Addplayer.php"><button>Add player</button></a>
     </div>
     </div>
     <table class="player-table" border="1" align="center" cellspacing="0" cellpadding="10">
@@ -96,4 +97,5 @@
         </tbody>
     </table>
 </body>
+</html>
 
