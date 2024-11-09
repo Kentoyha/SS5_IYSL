@@ -1,29 +1,28 @@
 <?php
 include("db_connect.php");
+
+
 ?>
-<DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Games</title>
-    <link rel="stylesheet" href="games.css">
  <link rel="stylesheet" href="games.css">
+
 <body>  
     <?php
     include("menu.php");
     include("header.php");
     ?>
     
-        <h1>INTERNATIONAL YOUTH SOCCER LEAGUE</h1>
-        <hr>
+        <h1>International Youth Soccer League</h1>
         <h2 align="center">Latest Games </h2>
-        <div>
+        <div class="container">
         <div class="buanga">
-        <a href="Add_game.php"><button class="buanga">New Game Record</button></a>
+            <button class="buanga"><a href="Add_game.php">Add New Game</a></button>
         </div>
-        ,
+        </div>
         
-        <table border="1" align="center" cellspacing="0" cellpadding="10">
+        <?php
+        
+        ?>
+        <table align="center" cellspacing="0" cellpadding="10">
         <tr>
            <th>Game ID</th>
             <th>Date</th>
@@ -34,6 +33,7 @@ include("db_connect.php");
             <th>Home score</th>
             <th>Away score</th>
             <th>Winner</th>
+            <th>Action</th>
         </tr>
         <?php
         
@@ -55,13 +55,13 @@ include("db_connect.php");
             INNER JOIN Team as HomeTeam ON Game.Home_team_id = HomeTeam.Team_id 
             INNER JOIN Team as AwayTeam ON Game.Away_team_id = AwayTeam.Team_id"
             ;
-       $query = mysqli_query($conn, $sql);
-        if (!$query){
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-        } else {
-            
-        }
-  
+    $query = mysqli_query($conn, $sql);
+    if (!$query){
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    } else {
+        
+    }
+
     while($result = mysqli_fetch_assoc($query)) {
         echo "<tr>";
         echo "<td>" . $result["Game_id"] . "</td>";
@@ -81,11 +81,48 @@ include("db_connect.php");
             echo "<td>Draw</td>";
         }
         
+        echo "<td> <a class='actdelete' href='Games.php?action=delete&Game_id={$result['Game_id']}'>Delete</a>" . "</td>";
         echo "</tr>";
     }
-        ?>
+    echo "<style>
+        .actdelete {
+            color: white;
+            background-color: red;
+            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .actdelete:hover {
+            background-color: darkred;
+        }
+    </style>";
+    ?>
+    </table>
+ <style>
+        .actdelete {
+            color: white;
+            background-color: red;
+            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .actdelete:hover {
+            background-color: darkred;
+        }
+   </style>
+    
+    <?php
+    ?> 
+    <?php
+    if (isset($_GET['action']) && isset($_GET['Game_id'])) {
+        $action = trim($_GET['action']);
+        $Game_id = trim($_GET['Game_id']);
 
-    </HEAD>
-    </table> 
-    </body>
-</html>
+        if ($action == 'delete') {
+            $sql = "DELETE FROM Game WHERE Game_id = $Game_id";
+            if (mysqli_query($conn, $sql)) {
+                echo "<script> alert('Game has been removed'); window.location='Games.php'; </script>";
+            }
+        }
+    }
+    ?>
