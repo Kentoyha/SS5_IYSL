@@ -86,7 +86,7 @@
                 } else {
                     while ($result = mysqli_fetch_assoc($query)) {
                         echo "<tr>";
-                        echo "<td>{$result['Last_name']}, {$result['First_name']} {$result['Middle_name']}</td>";
+                        echo "<td><a href='players_info.php'Player_id={$result['Player_id']}'>{$result['Last_name']}, {$result['First_name']} {$result['Middle_name']}</a></td>";
                         echo "<td>" . date("F d, Y", strtotime($result['Date_of_birth'])) . "</td>";
                         echo "<td>{$result['Email']}</td>";
                         echo "<td>{$result['Contact_number']}</td>";
