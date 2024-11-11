@@ -85,7 +85,7 @@ include 'header.php';
             exit;
         }
 
-        // Check if the teams have already played the home/away combination twice
+      
         $homeToAwayQuery = "
             SELECT COUNT(*) as count FROM Game 
             WHERE (Home_team_id = '$Home_team' AND Away_team_id = '$Away_team')
@@ -101,11 +101,11 @@ include 'header.php';
         $homeToAwayCount = mysqli_fetch_assoc($homeToAwayResult)['count'];
         $awayToHomeCount = mysqli_fetch_assoc($awayToHomeResult)['count'];
 
-        // Check if the maximum of one home and one away game has been reached
+        
         if ($homeToAwayCount >= 1 && $awayToHomeCount >= 1) {
             echo "<script> alert('These teams have already played their home and away games against each other.'); </script>";
         } else {
-            // Insert the new game record
+           
             $sql = "INSERT INTO Game (Date, Time, Location, Home_team_id, Away_team_id, home_score, away_score)
                     VALUES ('$Date', '$Time', '$Location', '$Home_team', '$Away_team', '$Home_score', '$Away_score')";
             $query = mysqli_query($conn, $sql);

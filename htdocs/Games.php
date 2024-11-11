@@ -15,7 +15,7 @@ include("db_connect.php");
         <h2 align="center">Latest Games </h2>
         <div class="container">
         <div class="buanga">
-            <button class="buanga"><a href="Add_game.php">Add New Game</a></button>
+        <a href="Add_game.php" class="buanga"><button >Add New Game</button></a>
         </div>
         </div>
         
@@ -84,18 +84,7 @@ include("db_connect.php");
         echo "<td> <a class='actdelete' href='Games.php?action=delete&Game_id={$result['Game_id']}'>Delete</a>" . "</td>";
         echo "</tr>";
     }
-    echo "<style>
-        .actdelete {
-            color: white;
-            background-color: red;
-            padding: 5px 10px;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .actdelete:hover {
-            background-color: darkred;
-        }
-    </style>";
+    
     ?>
     </table>
  <style>
